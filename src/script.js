@@ -31,3 +31,39 @@ document.getElementById('start-game').addEventListener('click', async () => {
     alert('An error occurred. Please try again.');
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startGameButton = document.getElementById("startGame");
+
+  startGameButton.addEventListener("click", () => {
+    // Collect data from the form
+    const data = {};
+    for (let i = 1; i <= 8; i++) {
+      const checkbox = document.getElementById(`spot${i}`);
+      data[`spot${i}`] = checkbox.checked; // true if checked, false otherwise
+    }
+
+    console.log("Collected Data:", data);
+
+    // Send data to Azure (this step will connect to your Azure API in the next steps)
+    sendDataToAzure(data);
+  });
+
+  function sendDataToAzure(data) {
+    fetch('/api/event', { // Adjust the endpoint as necessary
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('Data sent successfully!');
+        } else {
+          console.error('Failed to send data:', response.statusText);
+        }
+      })
+      .catch(error => console.error('Error sending data:', error));
+  }
+});
