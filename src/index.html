@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Game Setup</title>
-    <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seat Game</title>
+  <style>
+    .seat-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .seat-btn.selected {
+      background-color: green;
+      color: white;
+      border-color: green;
+    }
+    #start-game {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>Seating Status</h1>
-    <div id="seating">
-        <p>Click to toggle status:</p>
-        <button onclick="toggleSeat(1)">Spot 1</button>
-        <button onclick="toggleSeat(2)">Spot 2</button>
-        <button onclick="toggleSeat(3)">Spot 3</button>
-        <button onclick="toggleSeat(4)">Spot 4</button>
-        <button onclick="toggleSeat(5)">Spot 5</button>
-        <button onclick="toggleSeat(6)">Spot 6</button>
-        <button onclick="toggleSeat(7)">Spot 7</button>
-        <button onclick="toggleSeat(8)">Spot 8</button>
+  <h1>Seat Occupancy Game</h1>
+
+  <div id="seat-container">
+    <h3>Select Seats</h3>
+    <div>
+      <button class="seat-btn" data-seat="1">Seat 1</button>
+      <button class="seat-btn" data-seat="2">Seat 2</button>
+      <button class="seat-btn" data-seat="3">Seat 3</button>
+      <button class="seat-btn" data-seat="4">Seat 4</button>
+      <button class="seat-btn" data-seat="5">Seat 5</button>
+      <button class="seat-btn" data-seat="6">Seat 6</button>
+      <button class="seat-btn" data-seat="7">Seat 7</button>
+      <button class="seat-btn" data-seat="8">Seat 8</button>
     </div>
-    <h2>Current Seating</h2>
-    <pre id="status">[]</pre>
-    <button onclick="startGame()">Start Game</button>
-    <h2>Game Status</h2>
-    <pre id="gameStatus">No data yet.</pre>
+  </div>
+
+  <button id="start-game">Start Game</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
