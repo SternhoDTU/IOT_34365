@@ -67,3 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error('Error sending data:', error));
   }
 });
+
+
+const startGameUrl = "https://Lucy-app.azurewebsites.net/api/startGame";
+const getGameStatusUrl = "https://Lucy-app.azurewebsites.net/api/getGameStatus";
