@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("https://Lucy-app.azurewebsites.net/api/startGame", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": "${{ secrets.SECRET}}",
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ${{ secrets.SECRET}}',
         },
         body: JSON.stringify({ seating: seats }), // Send seat data as JSON
       });
