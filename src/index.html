@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Game Setup</title>
+    <script src="app.js" defer></script>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+    <h1>Seating Status</h1>
+    <div id="seating">
+        <p>Click to toggle status:</p>
+        <button onclick="toggleSeat(1)">Spot 1</button>
+        <button onclick="toggleSeat(2)">Spot 2</button>
+        <button onclick="toggleSeat(3)">Spot 3</button>
+        <button onclick="toggleSeat(4)">Spot 4</button>
+        <button onclick="toggleSeat(5)">Spot 5</button>
+        <button onclick="toggleSeat(6)">Spot 6</button>
+        <button onclick="toggleSeat(7)">Spot 7</button>
+        <button onclick="toggleSeat(8)">Spot 8</button>
+    </div>
+    <h2>Current Seating</h2>
+    <pre id="status">[]</pre>
+    <button onclick="startGame()">Start Game</button>
+    <h2>Game Status</h2>
+    <pre id="gameStatus">No data yet.</pre>
 </body>
-
 </html>
