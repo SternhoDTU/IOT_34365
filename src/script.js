@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Sending seating data:", seats); // Debug: log seating data
 
     try {
-      const response = await fetch("https://Lucy-app.azurewebsites.net/api/startGame", {
+      const response = await fetch("https://Lucy-app.azurewebsites.net/startGame", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Optional: Function to check game status
   const checkGameStatus = async () => {
     try {
-      const response = await fetch("https://Lucy-app.azurewebsites.net/api/getGameStatus");
+      const response = await fetch("https://Lucy-app.azurewebsites.net/getGameStatus");
       if (response.ok) {
         const data = await response.json();
         console.log("Current game status:", data);
