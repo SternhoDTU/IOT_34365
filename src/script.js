@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer ${{ secrets.SECRET}}",
+          "Authorization": "${{ secrets.SECRET}}",
         },
         body: JSON.stringify({ seating: seats }), // Send seat data as JSON
       });
