@@ -1,25 +1,20 @@
 {
   "version": "2.0",
   "logging": {
-    "applicationInsights": {
-      "samplingSettings": {
-        "isEnabled": true,
-        "excludedTypes": "Request"
+      "applicationInsights": {
+          "samplingSettings": {
+              "isEnabled": true,
+              "excludedTypes": "Request"
+          }
       }
-    }
   },
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
+      "id": "Microsoft.Azure.Functions.ExtensionBundle",
+      "version": "[4.*, 5.0.0)"
   },
   "extensions": {
-    "http": {
-      "routePrefix": "",
-      "customHeaders": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
+      "http": {
+          "routePrefix": "api"
       }
-    }
   }
 }
