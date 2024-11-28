@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${{ secrets.SECRET}}',
+          // Replace 'YOUR_SECRET_TOKEN' with the correct secret or remove if not required
+          'Authorization': 'Bearer YOUR_SECRET_TOKEN',
         },
         body: JSON.stringify({ seating: seats }), // Send seat data as JSON
       });
@@ -31,31 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         alert("Game started successfully!\n" + JSON.stringify(data, null, 2));
       } else {
-        alert("Failed to start the game. Please try again.");
         console.error("Response status:", response.status, response.statusText);
+        alert(`Failed to start the game. Status: ${response.status} - ${response.statusText}`);
       }
     } catch (error) {
       console.error("Error starting the game:", error);
-      alert("An error occurred. Please try again.");
+      alert("An error occurred. Please check your internet connection and try again.");
     }
   });
-
-  // Optional: Function to check game status
-  const checkGameStatus = async () => {
-    try {
-      const response = await fetch("https://Lucy-app.azurewebsites.net/getGameStatus");
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Current game status:", data);
-        alert("Game status:\n" + JSON.stringify(data, null, 2));
-      } else {
-        console.error("Failed to fetch game status:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error fetching game status:", error);
-    }
-  };
-
-  // Optional: Attach to another button if needed
-  // document.getElementById("check-status").addEventListener("click", checkGameStatus);
 });
