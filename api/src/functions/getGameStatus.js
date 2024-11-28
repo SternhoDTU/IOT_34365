@@ -6,8 +6,23 @@ app.http('getGameStatus', {
     handler: async (request, context) => {
         context.log(`Http function processed request for url "${request.url}"`);
 
-        const name = request.query.get('name') || await request.text() || 'world';
+        // Parse query or request body
+        let name = 'world';
+        if (request.method === 'GET') {
+            name = request.query?.name || 'world';
+        } else if (request.method === 'POST') {
+            try {
+                const body = await request.json();
+                name = body.name || 'world';
+            } catch (error) {
+                context.log('Failed to parse JSON:', error);
+            }
+        }
 
-        return { body: `Hello, ${name}!` };
+        // Return JSON response
+        return {
+            headers: { 'Content-Type': 'application/json' },
+            body: { text: `Hello, ${name}!` },
+        };
     }
 });
